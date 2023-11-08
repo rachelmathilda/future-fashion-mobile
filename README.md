@@ -2,19 +2,19 @@
 
 Stateful widget adalah widget yang dinamik (keadannya bisa diubah). contohnya Checkbox, Radio, Slider, Form, dan TextField
 
-2. MyApp => widget utama yang ngereturn MaterialApp 
-MaterialApp => konfigurasi aplikasi yang ngatur tema, rute, judul, dan sebagainya 
-MyHomePage => stateless widget yang nampilin Scaffold dan beberapa tombol  
-Scaffold => nentuin kerangka kerja untuk bangun aplikasi
-AppBar => nampilin bar atas untuk judul aplikasi 
-Center => buat childrennya untuk disusun berdasarkan kolom vertikal 
-Column => nyusun anak secara vertikal dari atas ke bawah
-MyButton => stateless widget custom yang nampilin ElevatedButton.icon, button yang ada ikon dan teksnya 
-ElevatedButton.icon => button yang punya icon dan text 
-ScaffoldMessenger => widget yang berisi APIs untuk nampilin SnackBar atau material lain
-SnackBar => semacam notifikasi di bagian bawah bar 
-Icon => nampilin ikon grafis 
-Text => nampilin teks 
+2. * MyApp => widget utama yang ngereturn MaterialApp 
+* MaterialApp => konfigurasi aplikasi yang ngatur tema, rute, judul, dan sebagainya 
+* MyHomePage => stateless widget yang nampilin Scaffold dan beberapa tombol  
+* Scaffold => nentuin kerangka kerja untuk bangun aplikasi
+* AppBar => nampilin bar atas untuk judul aplikasi 
+* Center => buat childrennya untuk disusun berdasarkan kolom vertikal 
+* Column => nyusun anak secara vertikal dari atas ke bawah
+* MyButton => stateless widget custom yang nampilin ElevatedButton.icon, button yang ada ikon dan teksnya 
+* ElevatedButton.icon => button yang punya icon dan text 
+* ScaffoldMessenger => widget yang berisi APIs untuk nampilin SnackBar atau material lain
+* SnackBar => semacam notifikasi di bagian bawah bar 
+* Icon => nampilin ikon grafis 
+* Text => nampilin teks 
 
 3. Implementasi checklist 
     * Untuk membuat program flutter saya menjalankan command flutter create (nama aplikasi) 
