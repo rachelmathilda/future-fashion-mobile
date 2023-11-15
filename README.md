@@ -1,27 +1,36 @@
-### Tugas 7 
+### Tugas 8
 
-1. Stateless widget adalah widget yang keadaannya tidak bisa diubah. contohnya Icon, IconButton, dan Text
+1. Navigator.push() akan menambahkan route ke dalam stack route yang dikelola oleh Navigator. Route baru akan diletakkan di paling atas stack, sehingga route itu yang akan ditampilkan kepada pengguna. 
 
-Stateful widget adalah widget yang dinamik (keadannya bisa diubah). contohnya Checkbox, Radio, Slider, Form, dan TextField
+Sedangkan Navigator.pushReplacement() akan mengganti route yang palig atas stack dengan route baru. Jadi route lama yang ada di atas stack route akan dihapus kemudian route baru diletakkan diatasnya. 
 
-2. * MyApp => widget utama yang ngereturn MaterialApp 
-* MaterialApp => konfigurasi aplikasi yang ngatur tema, rute, judul, dan sebagainya 
-* MyHomePage => stateless widget yang nampilin Scaffold dan beberapa tombol  
-* Scaffold => nentuin kerangka kerja untuk bangun aplikasi
-* AppBar => nampilin bar atas untuk judul aplikasi 
-* Center => buat childrennya untuk disusun berdasarkan kolom vertikal 
-* Column => nyusun anak secara vertikal dari atas ke bawah
-* MyButton => stateless widget custom yang nampilin ElevatedButton.icon, button yang ada ikon dan teksnya 
-* ElevatedButton.icon => button yang punya icon dan text 
-* ScaffoldMessenger => widget yang berisi APIs untuk nampilin SnackBar atau material lain
-* SnackBar => semacam notifikasi di bagian bawah bar 
-* Icon => nampilin ikon grafis 
-* Text => nampilin teks 
+2. Layout widget pada flutter: 
+    * Container => widget dasar untuk ngatur tata letak, ukuran, dan dekorasi
+    * Row => ngatur children dalam satu baris 
+    * Column => ngatur children dalam satu kolom
+    * Stack => widget yang numpukin anak-anaknya. tiap anak saling tumpang tindih satu sama lain
+    * ListView => widget yang scrollable
+    * GridView => widget yang nampilin daftar dalam grid 
+    * Wrap => ngatur children dalam baris atau kolom. jika sudah melebihi batas lebar atau tinggi dipindahin ke baris atau kolom lain selanjutnya
+    * Expanded & Flexible => ngontrol gimana widgetnya nempatin ruang di row, column, atau flex
 
-3. Implementasi checklist 
-    * Untuk membuat program flutter saya menjalankan command flutter create (nama aplikasi) 
+3. Elemen input pada form yang saya gunakan adalah TextFormField. Saya menggunakan elemen input tersebut adalah karena penggunaannya yang mudah. TextFormField menyediakan input validator untuk memastikan bahwa input sudah memenuhi syarat tertentu serta state management yang akan otomatis mengelola suatu nilai yang ada.
 
-    * Untuk membuat tiga tombol sederhana dengan ikon dan teks saya membuat sebuah class MyButton yang memiliki atribut IconData icon dan String text, pada bagian widget buildnya akan me return ElevatedButton.icon yang memiliki properti onPressed untuk mengatur apa yang terjadi ketika tombol ditekan, properti icon yang berisi widget Icon berdasarkan IconData icon yang ada, properti label yang berisi widget Text berdasarkan String text yang ada, dan properti style untuk pengerjaan bonus yaitu mengimplementasikan warna yang berbeda untuk setiap tombol
+4. Di flutter, clean architecture diimplementasikan dengan membagi kode menjadi beberapa lapisan yang saling terisolasi. Lapisan yang ada diantaranya adalah entities, use cases, interfaces, lapisan data, frameworks, dan drivers. 
 
-    * Untuk memunculkan snackbar dengan tulisan 
-    pada bagian onPressed saya membuat ScaffoldMessenger.of(context).showSnackBar( berisi snackbar) dimana SnackBarnya memiliki content berupa Text 'Kamu telah menekan tombol $text', $textnya berdasarkan nama buttonnya 
+Pada app ini saya menerapkan clean architecture dengan meletakkan left_drawer kedalam suatu folder widgets
+
+5. Implementasi checklist: 
+- Membuat halaman formulir 
+    * saya membuat halaman baru bernama ShopFormPage yang berisi sebuah form
+    * Form tersebut menggunakan tiga elemen input berupa name, amount, price, dan description. Jenis elemen input yang digunakan untuk mengubah data tersebut adalah TextFormField. 
+    * Pada elemen input tersebut, ada sebuah properti validator yang mengecek bahwa elemen input tersebut tidak boleh kosong dan harus berisi data dengan tipe data atribut modelnya 
+    * Pada form tersebut ada juga tombol save yang memanfaatkan ElevatedButton dimana button tersebut akan memunculkan AlertDialog form yang ada dan mereset formnya 
+
+- Membuat tombol Tambah Item yang mengarahkan ke halaman form 
+    * Saya membuat sebuah custom widget bernama Button yang akan mereturn ElevatedButton.icon dimana ketika di press dia akan menjalankan perintah navigator.push ke ShopFormPage
+    * Saya menghias buttonnya dengan bg color warna hijau dan icon 
+
+- Membuat drawer pada aplikasi 
+    * Saya membuat drawer di left_drawer yang ada di widgets. 
+    * Saya memanfaatkan Drawer dengan layout ListView yang berisi DrawerHeader dan 2 ListTile dimana ListTile yang pertama ketika di tap akan menuju ke home page (memanfaatkan Navigator.pushReplacement()) sedangkan ListTile yang kedua ketika di tap akan menuju form untuk menambahkan item (memanfaatkan Navigator.push()).

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:future_fashion/fashion_form.dart';
+import 'package:future_fashion/widgets/left_drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,23 +45,26 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Future Fashion',
-          ),
+      appBar: AppBar(
+        title: const Text(
+          'Future Fashion',
         ),
-        body: Center(
-          child: Column(
-            children: [
-              MyButton(
-                  icon: Icons.list, text: 'Lihat Item', color: Colors.cyan),
-              MyButton(
-                  icon: Icons.add, text: 'Tambah Item', color: Colors.pink),
-              MyButton(
-                  icon: Icons.outbond, text: 'Logout', color: Colors.orange),
-            ],
-          ),
-        ));
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            MyButton(icon: Icons.list, text: 'Lihat Item', color: Colors.cyan),
+            MyButton(icon: Icons.add, text: 'Tambah Item', color: Colors.pink),
+            MyButton(icon: Icons.outbond, text: 'Logout', color: Colors.orange),
+            Button(
+                icon: Icons.format_align_center,
+                text: 'Tambah Item',
+                color: Colors.green),
+          ],
+        ),
+      ),
+      drawer: const LeftDrawer(),
+    );
   }
 }
 
@@ -76,6 +81,26 @@ class MyButton extends StatelessWidget {
         onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Kamu telah menekan tombol $text')));
+        },
+        icon: Icon(icon),
+        label: Text(text),
+        style: ElevatedButton.styleFrom(backgroundColor: color));
+  }
+}
+
+class Button extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final Color color;
+
+  Button({required this.icon, required this.text, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ShopFormPage()));
         },
         icon: Icon(icon),
         label: Text(text),
