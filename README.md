@@ -2,16 +2,23 @@
 
 1. Ya, kita bisa melakukan pengambilan data JSON tanpa membuat model. Akan tetapi, membuat model terlebih dahulu lebih baik dibanding langsung mengambil data JSON. Hal ini dikarenakan dengan adanya model maka ada fitur untuk validasi dan memproses data 
 
-2. CookieRequest berfungsi untuk merekam perubahan dan kustomisasi sesuai dengan punya pengguna, serta untuk terintegrasi dengan proyek django yang ada sebelumnya 
+2. CookieRequest berfungsi untuk mengintegrasikan proyek flutter dengan proyek django yang ada sebelumnya 
 
-Perlu dibagikan ke semua komponen di aplikasi Flutter agar bisa bisa mengimplementasikan integrasi dengan proyek django yang dimiliki
+Perlu dibagikan ke semua komponen di aplikasi Flutter agar bisa mengimplementasikan integrasi dengan proyek django yang dimiliki
 
 3. Mekanisme pengambilan data dari JSON : 
+- pertama mendefine url dari endpoint jsonnya terlebih dahulu
+- kemudian menggunakan http.get dia mengambil data dari url yang ada. hasilnya diassign ke var response 
+- setelah itu, response di decode dengan jsondecode. hasilnya di assign ke var data 
+- kemudian, kita bisa mengiterasi data json yang ada di var data untuk ditampilkan di aplikasi flutter
 
 4. Mekanisme autentikasi dari input data akun pada Flutter ke Django: 
-
+- dengan CookieRequest, memanfaatkan method .login nantinya di dalam method tersebut di passing url login di proyek django sebelumnya serta data username dan passwordnya
+- request 
+- 
 
 5. Widget yang dipakai: 
+
 
 6. Implementasi checklist: 
     * melakukan deploy ulang di github 
