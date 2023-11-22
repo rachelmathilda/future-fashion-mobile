@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:future_fashion/main.dart';
+import 'package:future_fashion/screens/menu.dart';
 import 'package:future_fashion/fashion_form.dart';
+import 'package:future_fashion/screens/list_item.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -55,6 +56,17 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ShopFormPage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Daftar Item'),
+            onTap: () {
+              // Route menu ke halaman produk
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ItemPage()),
+              );
             },
           ),
         ],
